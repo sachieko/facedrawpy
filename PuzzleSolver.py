@@ -1,6 +1,6 @@
 #Maze Solve Quickdraw 
-#Author: Steven Santucci
-#ID: 10025469
+#Author: @sachieko
+#ID: Redacted
 
 #Version 1.0
 #
