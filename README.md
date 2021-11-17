@@ -17,7 +17,7 @@ Chromakey: Will replace certain shades of green with the image of another image,
 Other features such as greyscale or sepia are possible with modification.
 
 #Fourth Project: Graphing Functions
-This project has the ability to graph lines, parabolas, circles, points, and cubics. There was also a very rudimentary attempt at checking where two functions intercept but this function has been removed from this copy due to needs. There is also a fraction to decimal converter function. This program mimics many of the more complex features of a graphing calculator, and then outputs them graphically into Quickdraw.
+This project has the ability to graph lines, parabolas, circles, points, and cubics. There was also a very rudimentary attempt at checking where two functions intercept but this function has been removed from this copy due to needs. There is also a fraction to decimal converter function. This program does many of the more simple graphing features of a graphing calculator, and then outputs them graphically into Quickdraw. 
 
 #Fifth Project: Maze solving Project
 This program takes a text file input which represents a maze, and then graphically displays the maze. Then it automatically starts to proceed through the maze from the designated start, and highlights the path it takes. If it has to backtrack, the incorrect path will change color to indicate it backtracked, and this continues until it finds the exit. This uses a standard maze solving algorithm of taking the rightmost path each time, avoiding paths it has already gone down.
