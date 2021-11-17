@@ -57,7 +57,7 @@ def menu():
    sys.stderr.write( "\nNote: Please use the 'Convert' command to convert your fractions to decimals.")
    sys.stderr.write("\nCommands: Line, Circle, Parabola, Point, Cubic, Convert, Clear, Exit.")
    sys.stderr.write("\nPlease enter a command:")
-   prompt = raw_input()
+   prompt = input()
    convertinput()
    return prompt
   
@@ -105,27 +105,27 @@ def plot_axes():
    global xcoord
    x_axis = swidth_l
    y_axis = sheight_u
-   print "color 255 255 255"
-   print "fillrect",convert_x(swidth_l),convert_y(sheight_u),convert_x(swidth_r),convert_y(sheight_d)
-   print "color 0 0 0"
-   print "line",convert_x(swidth_l),centery,convert_x(swidth_r),centery
-   print "line",centerx,convert_y(sheight_u),centerx,convert_y(sheight_d)
+   print ("color 255 255 255")
+   print ("fillrect",convert_x(swidth_l),convert_y(sheight_u),convert_x(swidth_r),convert_y(sheight_d))
+   print ("color 0 0 0")
+   print ("line",convert_x(swidth_l),centery,convert_x(swidth_r),centery)
+   print ("line",centerx,convert_y(sheight_u),centerx,convert_y(sheight_d))
    while x_axis < swidth_r: 
      x_axis = x_axis + 1
      x_line = convert_x(x_axis)
-     print "line",x_line,(centery - ticklength),x_line,(centery + ticklength)
-     print "text",x_axis,x_line,(centery - ticklength2)
+     print ("line",x_line,(centery - ticklength),x_line,(centery + ticklength))
+     print ("text",x_axis,x_line,(centery - ticklength2))
    while y_axis >= sheight_d:
      y_line = convert_y(y_axis)
-     print "line",(centerx - ticklength),y_line,(centerx + ticklength),y_line
-     print "text",y_axis,(centerx + ticklength2),y_line
+     print ("line",(centerx - ticklength),y_line,(centerx + ticklength),y_line)
+     print ("text",y_axis,(centerx + ticklength2),y_line)
      y_axis = y_axis - 1
      sys.stdout.flush()
 #
 #The exit function, allows user to exit the program from the command prompt.
 #Closes quickdraw and then the program prompt.
 def exit1():
-   print "quit"
+   print ("quit")
    sys.stdout.flush()
 #
    
@@ -139,13 +139,13 @@ def exit1():
 def plot_line():
     sys.stderr.write("Equation of a line: y = mx + b\n m = slope, b = y intercept.\n")
     sys.stderr.write("Please enter the slope of the line: ")
-    slope_m = input()
+    slope_m = int(input())
     sys.stderr.write("Please enter the y-intercept: ")
-    y_cept = input()
+    y_cept = int(input())
     point_1 = slope_m * (swidth_l) + y_cept
     point_2 = slope_m * (swidth_r) + y_cept
-    print "color 0 255 0"
-    print "line",convert_x(swidth_l),convert_y(point_1),convert_x(swidth_r),convert_y(point_2)
+    print ("color 0 255 0")
+    print ("line",convert_x(swidth_l),convert_y(point_1),convert_x(swidth_r),convert_y(point_2))
     sys.stdout.flush()
     
 # 
@@ -158,13 +158,13 @@ def plot_line():
 def plot_circle():
    sys.stderr.write("Equation of a circle: (x-a)^2 + (y-b)^2 = r^2 \n a = x coordinate, b = y coordinate, r = radius.\n")
    sys.stderr.write("Please enter the x coordinate of the circle: ")
-   coord_a = input()
+   coord_a = int(input())
    sys.stderr.write("Please enter the y coordinate of the circle: ")
-   coord_b = input()
+   coord_b = int(input())
    sys.stderr.write("Please enter the radius of the circle: ")
-   radius_r = input()
-   print "color 0 0 255"
-   print "circle",convert_x(coord_a),convert_y(coord_b),convert_r(radius_r)
+   radius_r = int(input())
+   print ("color 0 0 255")
+   print ("circle",convert_x(coord_a),convert_y(coord_b),convert_r(radius_r))
    sys.stdout.flush()
 
 #
@@ -185,20 +185,20 @@ def plot_circle():
 def plot_parabola():
    sys.stderr.write("Equation of a parabola: a(x-b)^2 + c \n a = horizontal stretch. b = x coordinate of vertex. c = y coordinate of vertex.\n")
    sys.stderr.write("Please enter the a value: ")
-   horizontal_a = input()
+   horizontal_a = int(input())
    sys.stderr.write("Please enter the b value: ")
-   coord_b = input()
+   coord_b = int(input())
    sys.stderr.write("Please enter the c value: ")
-   coord_c = input()
+   coord_c = int(input())
    x_startline = swidth_l
-   print "color 255 0 0"
+   print ("color 255 0 0")
    #This while loop will perform calculations for the line end points, plot, then repeat for all x values in the range.
    #It starts as -14.0 = x.  The y_startline and y_endline are calculated with the parabola equation.
    while x_startline <= swidth_r:
     y_startline = horizontal_a * (x_startline - coord_b) ** 2 + coord_c
     x_endline = x_startline + paraincrement
     y_endline = horizontal_a * (x_endline - coord_b) ** 2 + coord_c
-    print "line",convert_x(x_startline),convert_y(y_startline),convert_x(x_endline),convert_y(y_endline)
+    print ("line",convert_x(x_startline),convert_y(y_startline),convert_x(x_endline),convert_y(y_endline))
     x_startline = x_startline + paraincrement
     x_endline = x_endline + paraincrement
     sys.stdout.flush()
@@ -220,22 +220,22 @@ def plot_parabola():
 def plot_cubic():
    sys.stderr.write("Equation of a cubic curve: ax^3 + bx^2 + cx + d. Enter in the exponents.\n")
    sys.stderr.write("Please enter the a value: ")
-   cubic_a = input()
+   cubic_a = int(input())
    sys.stderr.write("Please enter the b value: ")
-   cubic_b = input()
+   cubic_b = int(input())
    sys.stderr.write("Please enter the c value: ")
-   cubic_c = input()
+   cubic_c = int(input())
    sys.stderr.write("Please enter the d value: ")
-   cubic_d = input()  
+   cubic_d = int(input())
    x_startline = swidth_l
-   print "color 255 0 255"
+   print ("color 255 0 255")
    #This while loop will perform calculations for the line end points, plot, then repeat for all x values in the range.
    #The y variables are calculated with the equation of a cubic curve.
    while x_startline <= swidth_r:
     y_startline = cubic_a * x_startline ** 3 + cubic_b * x_startline ** 2 + cubic_c * x_startline + cubic_d
     x_endline = x_startline + paraincrement
     y_endline = cubic_a * x_endline ** 3 + cubic_b * x_endline ** 2 + cubic_c * x_endline + cubic_d
-    print "line",convert_x(x_startline),convert_y(y_startline),convert_x(x_endline),convert_y(y_endline)
+    print ("line",convert_x(x_startline),convert_y(y_startline),convert_x(x_endline),convert_y(y_endline))
     x_startline = x_startline + paraincrement
     x_endline = x_endline + paraincrement
     sys.stdout.flush()
@@ -246,9 +246,9 @@ def plot_cubic():
 #store a decimal value.
 def fractionize():
     sys.stderr.write("Fractions are in the form N/D. Numerator Over Demoninator.\n Please enter in N (Numberator): ")
-    numerator = input()
+    numerator = int(input())
     sys.stderr.write("Please enter in D (Denominator): ")
-    denominator = input()
+    denominator = int(input())
     calculated = (numerator + 0.0) / (denominator + 0.0)
     sys.stderr.write("%d/%d is the decimal: %2.5f" % (numerator, denominator, calculated))
     time.sleep(3)
@@ -260,11 +260,11 @@ def fractionize():
 #on a point the user wants. Nice for checking intersections you've calculated on paper.
 def plot_point():
     sys.stderr.write("Please enter in the x coordinate: ")
-    x_coord = input()
+    x_coord = int(input())
     sys.stderr.write("Please enter in the y coordinate: ")
-    y_coord = input()
-    print "color 125 0 25"
-    print "fillcircle",convert_x(x_coord),convert_y(y_coord),"2"
+    y_coord = int(input())
+    print ("color 125 0 25")
+    print ("fillcircle",convert_x(x_coord),convert_y(y_coord),"2")
     sys.stdout.flush()
 
 #
@@ -314,5 +314,3 @@ def main():
 #
 #This is the only function that needs to be called in order to run the program in its entirety.
 main()
-
-
