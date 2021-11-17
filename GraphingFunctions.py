@@ -218,7 +218,7 @@ def plot_parabola():
 #
 #
 def plot_cubic():
-   sys.stderr.write("Equation of a cubic curve: ax^3 + bx^2 + cx + d. Enter in the exponents.\n")
+   sys.stderr.write("Equation of a cubic curve: ax^3 + bx^2 + cx + d. Enter in the coefficients.\n")
    sys.stderr.write("Please enter the a value: ")
    cubic_a = int(input())
    sys.stderr.write("Please enter the b value: ")
