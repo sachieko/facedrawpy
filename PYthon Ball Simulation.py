@@ -43,9 +43,10 @@ import time
 # I added this feature so both versions of the ball could be seen, just for preference. 
 #
 
-sys.stderr.write('Welcome to the program.\n Enter \'1\' for no vertical velocity or \'2\' for with vertical velocity: ')
+sys.stderr.write('Welcome to the program.\n Enter \'1\' for no horizontal velocity or \'2\' for with horizontal velocity: ')
 
-user_input = input()
+user_input = int(input())
+
 
 
 
@@ -69,7 +70,8 @@ ball_time = 0.00
 ball_vel = 00.00
 ball_h = 2.00
 ball_acc = 9.81
-delta_t = 0.05
+delta_t = 0.025
+resist = 0.01
 
 #
 #Horizontal Velocity of the ball and horizontal starting position
@@ -89,7 +91,7 @@ delta_d = 10
 #           SCALE  1 pixel = .5 cm  OR 2 pixels = 1 centimetre
 #          radius of 40, which is 20cm
 #
-print "circle",ball_horz+40,"140 40 the_ball"
+print ("circle",ball_horz+40,"140 40 the_ball")
 
 sys.stdout.flush()
 
@@ -125,14 +127,18 @@ if user_input == 1:
   
    #
    #Print the move command for the_ball
-   print "move",ball_horz,draw_height,"the_ball"
-
-   #                               /                Change in height                       \
-   #Compute new height = height - (initial_velocity * DELTA TIME + ACC * DELTA TIME ** 2 *.5)
-   ball_h = ball_h - (ball_vel * delta_t + ball_acc * 0.5 * (delta_t ** 2))
-   # 
+   print ("move",ball_horz,draw_height,"the_ball")
    #Compute the new velocity = velocity + ACC * DELTA TIME
    ball_vel = ball_vel + ball_acc * delta_t
+   #                               /                Change in height                       \
+   #Compute new height = height - (initial_velocity * DELTA TIME + ACC * DELTA TIME ** 2 *.5)
+   ball_h = ball_h - (ball_vel * delta_t + ball_acc* .5 * (delta_t ** 2))
+   #Ensure ball cannot fall through the floor lul
+   if ball_h < 0.00:
+      ball_h = 0
+    
+   # 
+  
  
    #
    #Compute the new time = time + 0.1s
@@ -178,14 +184,17 @@ if user_input == 2:
   
    #
    #Print the move command for the_ball
-   print "move",ball_horz,draw_height,"the_ball"
+   print ("move",ball_horz,draw_height,"the_ball")
 
-   #                               /                Change in height                       \
-   #Compute new height = height - (initial_velocity * DELTA TIME + ACC * DELTA TIME ** 2 *.5)
-   ball_h = ball_h - (ball_vel * delta_t + ball_acc * 0.5 * (delta_t ** 2))
-   # 
    #Compute the new velocity = velocity + ACC * DELTA TIME
    ball_vel = ball_vel + ball_acc * delta_t
+   #                               /                Change in height                       \
+   #Compute new height = height - (initial_velocity * DELTA TIME + ACC * DELTA TIME ** 2 *.5)
+   ball_h = ball_h - (ball_vel * delta_t + ball_acc * .5 * (delta_t ** 2))
+   #Ensure ball cannot fall through the floor lul
+   if ball_h < 0.00:
+      ball_h = 0
+   
  
    #
    #Compute the new time = time + 0.1s
