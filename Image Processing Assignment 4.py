@@ -3,6 +3,10 @@
 #
 #Author: @sachieko
 #
+#2021 UPDATE NOTE: THIS PROGRAM IS NOT BEING UPDATED.
+#The Pillow module for python basically makes this whole program obsolete or trivial to code.
+#I am leaving the previous code here for the sake of "I did this once, look at how hard I worked" Kthx.
+#
 #NOTE: when running the program in quickdraw, if the java heap space runs out, increase the java heap
 #by using:  programname.py | java -Xmx512M -jar quickdraw.jar
 #
